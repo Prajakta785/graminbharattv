@@ -1,26 +1,427 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand-green: #166534;
+  --brand-orange: #EA580C;
+  --brand-gold: #D97706;
+  --dark-cinema: #080C14;
+  --card-dark: #0F172A;
+  --cream-bg: #FFFFFF;
+
+  --background: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-border: #E2E8F0;
+  --foreground: #0F172A;
+  --foreground-muted: #475569;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.light-mode {
+  --background: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-border: #E2E8F0;
+  --foreground: #0F172A;
+  --foreground-muted: #475569;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-devanagari), var(--font-outfit), sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* ========================================================
+   PREMIUM WHITE THEME (मराठी वृत्तपत्र व मीडिया पोर्टल थीम)
+   ======================================================== */
+
+html.light-mode body {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+/* Main Backgrounds & Containers */
+html.light-mode .bg-\[\#080C14\],
+html.light-mode .bg-\[\#0B0F17\],
+html.light-mode .bg-slate-950,
+html.light-mode .bg-black {
+  background-color: #FFFFFF !important;
+}
+
+/* Section dividers and light tinted backgrounds */
+html.light-mode .bg-slate-900\/50,
+html.light-mode .bg-slate-900\/60,
+html.light-mode .bg-slate-900\/80,
+html.light-mode .bg-slate-900\/90 {
+  background-color: #F8FAFC !important;
+}
+
+/* Cards & Content Blocks */
+html.light-mode .bg-slate-900 {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.06), 0 1px 3px -1px rgba(15, 23, 42, 0.04);
+}
+
+/* Secondary button/pill backgrounds */
+html.light-mode .bg-slate-800,
+html.light-mode .bg-slate-800\/60,
+html.light-mode .bg-slate-800\/80 {
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+  color: #1E293B !important;
+}
+
+html.light-mode .hover\:bg-slate-800:hover {
+  background-color: #E2E8F0 !important;
+}
+
+/* Category & District Badges in Light Mode */
+html.light-mode .bg-orange-950\/40,
+html.light-mode .bg-orange-950\/50,
+html.light-mode .bg-orange-950 {
+  background-color: #FFF7ED !important;
+  border-color: #FDBA74 !important;
+  color: #C2410C !important;
+}
+
+html.light-mode .bg-emerald-950\/40,
+html.light-mode .bg-emerald-950\/50,
+html.light-mode .bg-emerald-950 {
+  background-color: #ECFDF5 !important;
+  border-color: #6EE7B7 !important;
+  color: #047857 !important;
+}
+
+html.light-mode .bg-green-950\/40,
+html.light-mode .bg-green-950\/50,
+html.light-mode .bg-green-950 {
+  background-color: #F0FDF4 !important;
+  border-color: #86EFAC !important;
+  color: #15803D !important;
+}
+
+/* Borders */
+html.light-mode .border-slate-800,
+html.light-mode .border-slate-800\/80,
+html.light-mode .border-slate-800\/60,
+html.light-mode .border-slate-800\/50,
+html.light-mode .border-slate-700,
+html.light-mode .border-slate-700\/80 {
+  border-color: #E2E8F0 !important;
+}
+
+/* Typography in Light Mode */
+html.light-mode h1,
+html.light-mode h2,
+html.light-mode h3,
+html.light-mode h4,
+html.light-mode h5,
+html.light-mode h6 {
+  color: #0F172A !important;
+}
+
+html.light-mode .text-slate-100,
+html.light-mode .text-slate-200 {
+  color: #0F172A !important;
+}
+
+html.light-mode .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light-mode .text-slate-400 {
+  color: #64748B !important;
+}
+
+html.light-mode .text-slate-500 {
+  color: #64748B !important;
+}
+
+/* Form inputs & textareas */
+html.light-mode input[type="text"],
+html.light-mode input[type="email"],
+html.light-mode input[type="tel"],
+html.light-mode input[type="password"],
+html.light-mode input[type="search"],
+html.light-mode select,
+html.light-mode textarea {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important;
+}
+
+html.light-mode input::placeholder,
+html.light-mode textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Preserve Crisp White Text on Colored Buttons & Badges */
+html.light-mode .bg-orange-600,
+html.light-mode .bg-orange-500,
+html.light-mode .bg-emerald-700,
+html.light-mode .bg-emerald-600,
+html.light-mode .bg-green-700,
+html.light-mode .bg-green-600,
+html.light-mode .bg-red-600,
+html.light-mode .bg-red-500,
+html.light-mode .bg-indigo-600,
+html.light-mode [class*="from-orange"],
+html.light-mode [class*="from-emerald"],
+html.light-mode [class*="from-green"],
+html.light-mode [class*="from-red"] {
+  color: #FFFFFF !important;
+}
+
+html.light-mode button[class*="bg-orange"] *,
+html.light-mode button[class*="bg-emerald"] *,
+html.light-mode button[class*="bg-green"] *,
+html.light-mode button[class*="bg-red"] *,
+html.light-mode a[class*="bg-orange"] *,
+html.light-mode a[class*="bg-emerald"] *,
+html.light-mode a[class*="bg-green"] *,
+html.light-mode a[class*="bg-red"] * {
+  color: #FFFFFF !important;
+}
+
+html.light-mode .bg-yellow-400,
+html.light-mode .bg-yellow-400 * {
+  color: #000000 !important;
+}
+
+/* Scheme Card Crisp Text Safeguards */
+.scheme-card h3,
+html.light-mode .scheme-card h3,
+.scheme-card h3 a,
+html.light-mode .scheme-card h3 a {
+  color: #FFFFFF !important;
+}
+
+.scheme-card p,
+html.light-mode .scheme-card p {
+  color: #E2E8F0 !important;
+}
+
+.scheme-card .scheme-author,
+html.light-mode .scheme-card .scheme-author {
+  color: #94A3B8 !important;
+}
+
+.scheme-card .scheme-cta,
+html.light-mode .scheme-card .scheme-cta {
+  color: #34D399 !important;
+}
+
+/* Header Adjustments in Light Mode */
+html.light-mode header .light-mode-logo-text {
+  color: #0F172A !important;
+}
+
+html.light-mode header .bg-slate-950\/95 {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-bottom-color: #E2E8F0 !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light-mode header .bg-slate-900\/80 {
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+}
+
+html.light-mode header nav a {
+  color: #334155 !important;
+}
+
+html.light-mode header nav a:hover {
+  background-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+html.light-mode header nav a[class*="from-orange"] {
+  color: #FFFFFF !important;
+}
+
+html.light-mode header input {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+/* Dropdown menus in light mode */
+html.light-mode .bg-slate-900.rounded-xl,
+html.light-mode .bg-slate-900.rounded-2xl {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 10px 30px -4px rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Mobile Bottom Navigation in Light Mode */
+html.light-mode .light-mode-bottom-nav {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border-top-color: #E2E8F0 !important;
+  box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light-mode .light-mode-bottom-nav a {
+  color: #64748B !important;
+}
+
+html.light-mode .light-mode-bottom-nav a[class*="text-orange"] {
+  color: #EA580C !important;
+}
+
+/* Footer remains prestigious dark anchoring news design */
+html.light-mode footer {
+  background-color: #080C14 !important;
+  color: #F8FAFC !important;
+}
+html.light-mode footer * {
+  color: inherit;
+}
+html.light-mode footer h3,
+html.light-mode footer h4 {
+  color: #FFFFFF !important;
+}
+html.light-mode footer p,
+html.light-mode footer a {
+  color: #94A3B8 !important;
+}
+html.light-mode footer a:hover {
+  color: #F97316 !important;
+}
+
+/* ========================================================
+   CINEMATIC OTT HERO BANNER & MEDIA BACKDROPS
+   Always maintain crisp, high-contrast white text & visible buttons
+   ======================================================== */
+.cinematic-hero,
+html.light-mode .cinematic-hero,
+.cinematic-backdrop,
+html.light-mode .cinematic-backdrop {
+  background-color: #000000 !important;
+}
+
+.cinematic-hero img,
+html.light-mode .cinematic-hero img {
+  opacity: 1 !important;
+  filter: brightness(1.15) contrast(1.05) !important;
+}
+
+.cinematic-hero h1,
+html.light-mode .cinematic-hero h1,
+.cinematic-hero .hero-title,
+html.light-mode .cinematic-hero .hero-title,
+.cinematic-backdrop h1,
+html.light-mode .cinematic-backdrop h1,
+.cinematic-backdrop .hero-title,
+html.light-mode .cinematic-backdrop .hero-title {
+  color: #FFFFFF !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 2px 6px rgba(0, 0, 0, 0.9) !important;
+}
+
+.cinematic-hero p,
+html.light-mode .cinematic-hero p,
+.cinematic-hero .hero-subtitle,
+html.light-mode .cinematic-hero .hero-subtitle,
+.cinematic-backdrop p,
+html.light-mode .cinematic-backdrop p {
+  color: #F8FAFC !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95) !important;
+}
+
+/* Hero Action Buttons in Light & Dark Mode */
+.cinematic-hero .hero-subscribe-btn,
+html.light-mode .cinematic-hero .hero-subscribe-btn {
+  background-color: rgba(15, 23, 42, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6) !important;
+}
+
+.cinematic-hero .hero-subscribe-btn:hover,
+html.light-mode .cinematic-hero .hero-subscribe-btn:hover {
+  background-color: rgba(30, 41, 59, 0.98) !important;
+  border-color: #EA580C !important;
+  color: #FFFFFF !important;
+}
+
+.cinematic-hero .hero-subscribe-btn span,
+html.light-mode .cinematic-hero .hero-subscribe-btn span,
+.cinematic-hero .hero-subscribe-btn *,
+html.light-mode .cinematic-hero .hero-subscribe-btn * {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+.cinematic-hero .hero-subscribe-btn svg,
+html.light-mode .cinematic-hero .hero-subscribe-btn svg {
+  color: #FB923C !important;
+}
+
+/* Maintain crisp white text on dark promo teasers (Grievance & Subscription) */
+html.light-mode [class*="from-red-950"] h2,
+html.light-mode [class*="from-red-950"] p,
+html.light-mode [class*="from-red-950"] span,
+html.light-mode [class*="from-orange-950"] h2,
+html.light-mode [class*="from-orange-950"] p,
+html.light-mode [class*="from-orange-950"] span {
+  color: #FFFFFF !important;
+}
+
+html.light-mode [class*="from-orange-950"] .bg-slate-900\/90 {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+}
+
+html.light-mode [class*="from-orange-950"] .bg-slate-900\/90 * {
+  color: #F8FAFC !important;
+}
+
+/* News Broadcast Marquee Ticker Animation */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-scroll {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #EA580C;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F97316;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
